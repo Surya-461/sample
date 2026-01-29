@@ -1,0 +1,161 @@
+/* =============================
+   DESIGN TOKENS
+============================= */
+:root {
+    --footer-bg: linear-gradient(135deg, #020617, #0b2035, #0f2a44);
+    --footer-text: #cbd5e1;
+    --footer-muted: #94a3b8;
+    --footer-accent: #38bdf8;
+    --footer-border: rgba(255, 255, 255, 0.12);
+    --radius-md: 14px;
+}
+
+/* =============================
+   WRAPPER
+============================= */
+.footer-wrapper {
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    font-family: Inter, system-ui, sans-serif;
+    padding: 64px 20px 28px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* =============================
+   GRID
+============================= */
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+}
+
+/* =============================
+   BRAND
+============================= */
+.footer-brand {
+    max-width: 320px;
+}
+
+.brand-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.brand-logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    color: #fff;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+/* =============================
+   TEXT
+============================= */
+.footer-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--footer-muted);
+}
+
+.footer-contact {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--footer-muted);
+    margin-bottom: 8px;
+}
+
+/* =============================
+   TITLES
+============================= */
+.footer-subtitle {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 14px;
+    color: #e5e7eb;
+}
+
+/* =============================
+   LINKS
+============================= */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.footer-links.muted li {
+    color: var(--footer-muted);
+}
+
+.footer-link {
+    color: var(--footer-text);
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.footer-link:hover {
+    color: var(--footer-accent);
+    padding-left: 4px;
+}
+
+.footer-link.active {
+    color: var(--footer-accent);
+    font-weight: 600;
+}
+
+/* =============================
+   DIVIDER
+============================= */
+.footer-divider {
+    border: none;
+    border-top: 1px solid var(--footer-border);
+    margin: 40px 0 20px;
+}
+.footer-logo {
+    height: 42px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 20px;
+    background: #ffffff;
+    padding: 4px;
+}
+
+/* =============================
+   BOTTOM
+============================= */
+.footer-bottom {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--footer-muted);
+}
+
+/* =============================
+   RESPONSIVE
+============================= */
+@media (max-width: 600px) {
+    .footer-wrapper {
+        padding-top: 48px;
+    }
+}

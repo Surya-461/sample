@@ -1,0 +1,192 @@
+/* ===================================================== */
+/* NAVBAR BASE */
+/* ===================================================== */
+.fin-navbar {
+    background: rgba(4, 4, 4, 0.95);
+    z-index: 1000;
+}
+
+/* ===================================================== */
+/* BRAND */
+/* ===================================================== */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.navbar-logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    image-rendering: auto;
+    transition: transform 0.25s ease;
+}
+
+.navbar-brand:hover .navbar-logo {
+    transform: scale(1.05);
+}
+
+/* Mobile logo */
+@media (max-width: 768px) {
+    .navbar-logo {
+        height: 30px;
+    }
+}
+
+/* ===================================================== */
+/* NAV LINKS – ROUNDED ANIMATION */
+/* ===================================================== */
+.navbar-nav .nav-link {
+    color: #e5e7eb;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 999px;
+    position: relative;
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.2s ease,
+        color 0.3s ease;
+}
+
+/* Hover */
+.navbar-nav .nav-link:hover {
+    background: rgba(56, 189, 248, 0.12);
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.6);
+    transform: translateY(-1px);
+}
+
+/* Active */
+.navbar-nav .nav-link.active {
+    background: rgba(56, 189, 248, 0.18);
+    box-shadow:
+        0 0 0 2px rgba(56, 189, 248, 0.9),
+        0 0 14px rgba(56, 189, 248, 0.6);
+    color: #38bdf8 !important;
+}
+
+/* Click */
+.navbar-nav .nav-link:active {
+    transform: scale(0.95);
+}
+
+/* ===================================================== */
+/* USER ICON */
+/* ===================================================== */
+.user-icon {
+    font-size: 1.9rem;
+    color: #38bdf8;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.user-icon:hover {
+    transform: scale(1.08);
+}
+
+/* ===================================================== */
+/* PROFILE DROPDOWN */
+/* ===================================================== */
+.profile-dropdown {
+    position: absolute;
+    top: 48px;
+    right: 0;
+    width: 220px;
+    background: #0b2035;
+    border-radius: 12px;
+    padding: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    z-index: 999;
+}
+
+.profile-dropdown .email {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    margin-bottom: 8px;
+    word-break: break-word;
+}
+
+.role-tag {
+    color: #ffffff;
+    font-size: 0.85rem;
+}
+
+/* ===================================================== */
+/* OFFCANVAS */
+/* ===================================================== */
+.offcanvas {
+    width: 260px;
+}
+
+.offcanvas .nav-link {
+    color: #e5e7eb;
+    font-weight: 500;
+}
+
+.offcanvas .nav-link:hover {
+    color: #38bdf8;
+}
+
+/* Logout button hover */
+.btn.btn-outline-dark.bg-white:hover {
+    background-color: #dc2626;
+    /* red */
+    color: red;
+    /* white text */
+    border-color: #dc2626;
+    transition: all 0.25s ease;
+}
+
+/* =====================================================
+   RESPONSIVE AUTH VISIBILITY
+===================================================== */
+
+.desktop-only {
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .desktop-only {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+/* ================================
+   LOGIN BUTTON – ENTERPRISE STYLE
+================================ */
+
+.btn-login {
+    text-decoration: none;
+    color: #eaeaeb;
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: 999px;
+    /* border: 2px solid rgba(14, 165, 233, 0.6); */
+    background: transparent;
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.2s ease,
+        color 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.btn-login:hover {
+    background: rgba(56, 189, 248, 0.15);
+    box-shadow:
+        0 0 0 2px rgba(56, 189, 248, 0.8),
+        0 0 18px rgba(56, 189, 248, 0.6);
+    color: #010f15;
+    transform: translateY(-1px);
+    text-decoration: none;
+}
+
+/* CLICK / ACTIVE */
+.btn-login:active {
+    transform: scale(0.96);
+}

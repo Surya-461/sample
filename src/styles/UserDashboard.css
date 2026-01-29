@@ -1,0 +1,506 @@
+:root {
+    --bg: #f4f7fb;
+    --card: rgba(255, 255, 255, 0.92);
+    --text: #0f172a;
+    --muted: #64748b;
+    --green: #22c55e;
+    --red: #ef4444;
+    --amber: #f59e0b;
+    --radius: 14px;
+    --shadow: 0 18px 45px rgba(15, 23, 42, 0.14);
+}
+
+.dashboard-page {
+    padding: 24px;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top left, #e0e7ff, transparent 45%),
+        radial-gradient(circle at bottom right, #dbeafe, transparent 45%),
+        var(--bg);
+    font-family: "Inter", system-ui, sans-serif;
+}
+
+/* PAYMENT */
+.payment-card {
+    max-width: 420px;
+    margin: 100px auto;
+    background: var(--card);
+    padding: 26px;
+    text-align: center;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.pay-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    font-weight: 700;
+}
+
+/* CLIENT INFO */
+.client-info-card {
+    margin: 20px 0;
+    padding: 18px;
+    border-radius: var(--radius);
+    background:
+        linear-gradient(135deg, rgba(37, 99, 235, .08), rgba(34, 197, 94, .08)),
+        var(--card);
+    box-shadow: var(--shadow);
+}
+
+.client-info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+/* KPI */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+}
+
+.kpi-card {
+    padding: 16px;
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.kpi-card.success h3 {
+    color: var(--green);
+}
+
+.kpi-card.danger h3 {
+    color: var(--red);
+}
+
+.kpi-card.warning h3 {
+    color: var(--amber);
+}
+
+/* CHARTS */
+.chart-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.chart-card {
+    padding: 16px;
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+/* TABLE */
+.table-card {
+    margin-top: 24px;
+    background: var(--card);
+    padding: 16px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.filter-input {
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    width: 260px;
+}
+
+.status.approved {
+    color: var(--green);
+    font-weight: 700;
+}
+
+.status.rejected {
+    color: var(--red);
+    font-weight: 700;
+}
+
+@media (max-width:1200px) {
+    .chart-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .client-info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ===============================
+   GLOBAL SMOOTHNESS
+================================ */
+* {
+    transition: background-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease,
+        color 0.2s ease;
+}
+
+/* ===============================
+   PAGE FADE-IN
+================================ */
+.dashboard-page {
+    animation: pageFade 0.6s ease forwards;
+}
+
+@keyframes pageFade {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===============================
+   CARD BASE ANIMATION
+================================ */
+.kpi-card,
+.chart-card,
+.client-info-card,
+.table-card,
+.payment-card {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Lift on hover */
+.kpi-card:hover,
+.chart-card:hover,
+.client-info-card:hover,
+.table-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 28px 55px rgba(15, 23, 42, 0.22);
+}
+
+/* ===============================
+   SOFT AI SHIMMER (CARD GLOW)
+================================ */
+.kpi-card::after,
+.chart-card::after,
+.client-info-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, 0.45),
+            transparent);
+    transform: translateX(-100%);
+}
+
+.kpi-card:hover::after,
+.chart-card:hover::after,
+.client-info-card:hover::after {
+    animation: shimmer 1.4s ease;
+}
+
+@keyframes shimmer {
+    to {
+        transform: translateX(100%);
+    }
+}
+
+/* ===============================
+   KPI NUMBER POP
+================================ */
+.kpi-card h3 {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.kpi-card:hover h3 {
+    transform: scale(1.12);
+}
+
+/* Gradient KPI numbers (AI feel) */
+.kpi-card.success h3 {
+    background: linear-gradient(90deg, #16a34a, #4ade80);
+    /* -webkit-background-clip: text; */
+    color: transparent;
+}
+
+.kpi-card.danger h3 {
+    background: linear-gradient(90deg, #dc2626, #fb7185);
+    /* -webkit-background-clip: text; */
+    color: transparent;
+}
+
+.kpi-card.warning h3 {
+    background: linear-gradient(90deg, #f59e0b, #fde047);
+    /* -webkit-background-clip: text; */
+    color: transparent;
+}
+
+/* ===============================
+   BUTTON INTERACTION
+================================ */
+.pay-btn {
+    cursor: pointer;
+}
+
+.pay-btn:hover {
+    transform: scale(1.04);
+    box-shadow: 0 18px 36px rgba(34, 197, 94, 0.45);
+}
+
+/* ===============================
+   INPUT INTERACTION
+================================ */
+.filter-input {
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filter-input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+}
+
+/* ===============================
+   TABLE ROW HOVER
+================================ */
+.table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+    background: rgba(37, 99, 235, 0.06);
+}
+
+/* ===============================
+   STATUS BADGE ANIMATION
+================================ */
+.status {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.status:hover {
+    transform: scale(1.1);
+}
+
+/* ===============================
+   RESPONSIVE MOTION REDUCTION
+================================ */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* ===============================
+   DASHBOARD BLUR
+================================ */
+.dashboard-content.blurred {
+    filter: blur(8px);
+    opacity: 0.6;
+    pointer-events: none;
+    /* user-select: none; */
+}
+
+/* ===============================
+   LOCK OVERLAY
+================================ */
+.dashboard-lock-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.45);
+    /* backdrop-filter: blur(6px); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+/* ===============================
+   PAYMENT CARD – PLAN & COUPON
+================================ */
+
+/* Radio buttons (Monthly / Yearly) */
+.payment-card label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #111827;
+    cursor: pointer;
+    margin-bottom: 6px;
+}
+
+.payment-card input[type="radio"] {
+    accent-color: #2563eb;
+    /* blue */
+    cursor: pointer;
+}
+
+/* Coupon input */
+.payment-card .filter-input {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #cbd5f5;
+    outline: none;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.payment-card .filter-input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+/* Apply coupon button */
+.payment-card button.pay-btn {
+    width: 100%;
+    margin-top: 12px;
+}
+
+/* Coupon success message + timer */
+.payment-card p {
+    font-size: 13px;
+    margin-top: 8px;
+    text-align: center;
+}
+
+/* Discounted price */
+.payment-card h2 {
+    margin-top: 12px;
+    font-size: 26px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+/* Disabled coupon input */
+.payment-card input:disabled {
+    background-color: #f1f5f9;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+/* ===============================
+   RESPONSIVE (MOBILE SAFE)
+================================ */
+@media (max-width: 480px) {
+    .payment-card {
+        padding: 20px;
+    }
+
+    .payment-card h2 {
+        font-size: 22px;
+    }
+}
+
+/* ===== LOCK SCREEN ===== */
+.lock-wrapper {
+    position: sticky;
+    top: 90px;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.lock-card {
+    background: #ffffff;
+    width: 420px;
+    padding: 32px;
+    border-radius: 18px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+    text-align: center;
+}
+
+/* Title */
+.lock-title {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.lock-subtitle {
+    color: #64748b;
+    margin-bottom: 24px;
+}
+
+/* Plans */
+.plan-group {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.plan-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+}
+
+/* Input */
+.lock-input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #c7d2fe;
+    margin-bottom: 14px;
+    font-size: 15px;
+}
+
+/* Buttons */
+.btn-green {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-green:hover {
+    opacity: 0.95;
+}
+
+/* Price */
+.final-price {
+    font-size: 34px;
+    font-weight: 800;
+    margin: 18px 0 10px;
+}
+
+/* Coupon */
+.coupon-success {
+    color: #16a34a;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+/* Blur dashboard */
+.blurred {
+    filter: blur(6px);
+    pointer-events: none;
+    /* user-select: none; */
+}
